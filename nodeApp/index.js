@@ -5,7 +5,13 @@ const PORT = 9000
 
 app.get('/',(req,res)=>{
   
-  res.send('<h1>Tetsing express</h1>')
-}).listen(PORT,()=>{
+  res.send('Tetsing express')
+})
+
+app.post('/',(req,res)=>{
+  res.send('Sending data via the internet')
+})
+
+app.listen(PORT,()=>{
   console.log(`listening on port ${PORT}`)
 })
