@@ -1,21 +1,11 @@
-// run `node index.js` in the terminal
-import http from 'http'
-import fs from 'fs'
+const express = require('express')
+const app = express()
 
-http.createServer((req,res)=>{
-  if(req.url==='/'){
-    res.writeHead(200,{'Content-Type':'text/html'})
-    res.end('<h1>Home page</h1>')
-  }else if(req.url==='/about'){
-    res.writeHead(200,{'Content-Type':'text/html'})
-    res.end('<h1>About us</h1>')
-  }else if(req.url ==='/contact'){
-    res.writeHead(200,{'Content-Type':'text/html'})
-    res.end('<h1>Contact us</h1>')
-  }else{
-    res.writeHead(404,{'Content-Type':'text/html'})
-    res.end('<h1>Page not found!</h1>')
-  }
-}).listen(5000,()=>{
-  console.log('server up and running')
+const PORT = 9000
+
+app.get('/',(req,res)=>{
+  
+  res.send('<h1>Tetsing express</h1>')
+}).listen(PORT,()=>{
+  console.log(`listening on port ${PORT}`)
 })
